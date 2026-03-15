@@ -1,7 +1,11 @@
 require_relative './product.rb' 
 require_relative './market.rb' 
 require_relative './payment.rb' 
+require_relative './spiner.rb' 
 require 'json' 
+
+include Spinner 
+spinner = Spinner::SpinnerProgress.new
 
 cart = [] # Váriavel global para guardar os produtos escolhidos na opção 2
 products = [] # Guardo meu json como objeto neste array
@@ -33,6 +37,7 @@ loop do
     if option == "0" 
         break 
     elsif option == "1" 
+        puts spinner.progress
         puts "Produtos: "
         products.each_with_index do |product, index|
             puts "-" * 20
